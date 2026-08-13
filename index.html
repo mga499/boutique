@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique</title>
+    <link rel="stylesheet" href="styles-boutique.css">
+</head>
+<body>
+    <header class="entete">
+        <h1 id="titre">Boutique</h1>
+        <form class="recherche" role="search">
+            <label for="recherche-produit" class="visually-hidden">Rechercher un produit</label>
+            <input type="search" id="recherche-produit" name="q" placeholder="Cherche ton produit...">
+        </form>
+    </header>
+
+    <main>
+        <div class="grille-carte">
+            <article class="carte" data-images="images/porte-monais1-sur-1-1.jpg, images/porte-monais-2-sur-3-1.jpg">
+                <button type="button" class="carte-image-btn" aria-label="Voir plus de photos de Porte-monnaie 1">
+                    <img src="images/porte-monais1-sur-1-1.jpg" alt="Photo du produit Porte-monnaie 1">
+                    <span class="carte-image-survol">Voir les photos</span>
+                </button>
+                <h2>Porte-monnaie 1</h2>
+                <p class="prix"> CHF</p>
+                <button type="button" class="btn-ajouter">Obtenir</button>
+            </article>
+
+            <article class="carte" data-images="images/20260812_131657.jpg, images/20260812_131708.jpg, images/20260812_131728.jpg">
+                <button type="button" class="carte-image-btn" aria-label="Voir plus de photos de Porte-monnaie 2">
+                    <img src="images/20260812_131657.jpg" alt="Photo du produit Porte-monnaie 2">
+                    <span class="carte-image-survol">Voir les photos</span>
+                </button>
+                <h2>Porte-monnaie 2</h2>
+                <p class="prix"> CHF</p>
+                <button type="button" class="btn-ajouter">Obtenir</button>
+            </article>
+
+            <article class="carte" data-images="images/20260812_131850.jpg, images/20260812_131923.jpg, images/20260812_131946.jpg">
+                <button type="button" class="carte-image-btn" aria-label="Voir plus de photos de Porte-monnaie 3">
+                    <img src="images/20260812_131850.jpg" alt="Photo du produit Porte-monnaie 3">
+                    <span class="carte-image-survol">Voir les photos</span>
+                </button>
+                <h2>Porte-monnaie 3</h2>
+                <p class="prix"> CHF</p>
+                <button type="button" class="btn-ajouter">Obtenir</button>
+            </article>
+
+            <article class="carte" data-images="images/20260812_132013.jpg, images/20260812_132024.jpg, images/20260812_132047.jpg">
+                <button type="button" class="carte-image-btn" aria-label="Voir plus de photos de Porte-monnaie 4">
+                    <img src="images/20260812_132013.jpg" alt="Photo du produit Porte-monnaie 4">
+                    <span class="carte-image-survol">Voir les photos</span>
+                </button>
+                <h2>Porte-monnaie 4</h2>
+                <p class="prix"> CHF</p>
+                <button type="button" class="btn-ajouter">Obtenir</button>
+            </article>
+
+            <article class="carte" data-images="images/20260812_132102.jpg, images/20260812_132113.jpg, images/20260812_132142.jpg">
+                <button type="button" class="carte-image-btn" aria-label="Voir plus de photos de Porte-monnaie 5">
+                    <img src="images/20260812_132102.jpg" alt="Photo du produit Porte-monnaie 5">
+                    <span class="carte-image-survol">Voir les photos</span>
+                </button>
+                <h2>Porte-monnaie 5</h2>
+                <p class="prix"> CHF</p>
+                <button type="button" class="btn-ajouter">Obtenir</button>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="pied-de-page">
+        <p>&copy; 2026 Boutique. Tous droits réservés.</p>
+    </footer>
+
+    <div class="modal-galerie" id="modal-galerie" hidden>
+        <div class="modal-fond" data-fermer></div>
+        <div class="modal-contenu" role="dialog" aria-modal="true" aria-label="Galerie photo du produit">
+            <button type="button" class="modal-fermer" data-fermer aria-label="Fermer la galerie">&times;</button>
+            <button type="button" class="modal-precedent" aria-label="Image précédente">&#8249;</button>
+            <img class="modal-image" src="" alt="">
+            <button type="button" class="modal-suivant" aria-label="Image suivante">&#8250;</button>
+            <p class="modal-compteur"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+/* ---------- Base ---------- */
+:root {
+    --couleur-primaire: #1a1a1a;
+    --couleur-accent: #d97757;
+    --couleur-fond: #faf9f7;
+    --couleur-carte: #ffffff;
+    --couleur-texte: #262626;
+    --couleur-texte-clair: #6b6b6b;
+    --couleur-bordure: #e5e2dd;
+    --rayon: 10px;
+    --ombre: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --ombre-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    line-height: 1.5;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---------- En-tete ---------- */
+.entete {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--couleur-carte);
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.entete h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--couleur-primaire);
+}
+
+.recherche {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.recherche input[type="search"] {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    font-size: 0.95rem;
+    min-width: 220px;
+}
+
+.recherche input[type="search"]:focus {
+    outline: none;
+    border-color: var(--couleur-accent);
+    box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.15);
+}
+
+.recherche button {
+    padding: 0.6rem 1.1rem;
+    border: none;
+    border-radius: var(--rayon);
+    background-color: var(--couleur-primaire);
+    color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.recherche button:hover {
+    background-color: var(--couleur-accent);
+}
+
+/* ---------- Grille de produits ---------- */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grille-carte {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.carte {
+    background-color: var(--couleur-carte);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    overflow: hidden;
+    box-shadow: var(--ombre);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.carte:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ombre-hover);
+}
+
+.carte-image-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.carte img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: var(--couleur-fond);
+    display: block;
+}
+
+.carte-image-survol {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(26, 26, 26, 0.45);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.carte-image-btn:hover .carte-image-survol,
+.carte-image-btn:focus-visible .carte-image-survol {
+    opacity: 1;
+}
+
+.carte h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 0.9rem 1rem 0.2rem;
+}
+
+.carte .prix {
+    padding: 0 1rem;
+    color: var(--couleur-texte-clair);
+    font-weight: 500;
+}
+
+.carte .btn-ajouter {
+    margin: 0.9rem 1rem 1rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: var(--rayon);
+    background-color: var(--couleur-accent);
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.carte .btn-ajouter:hover {
+    opacity: 0.85;
+}
+
+/* ---------- Pied de page ---------- */
+.pied-de-page {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--couleur-texte-clair);
+    font-size: 0.85rem;
+}
+
+/* ---------- Modale galerie photo ---------- */
+.modal-galerie[hidden] {
+    display: none;
+}
+
+.modal-galerie {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-fond {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(15, 15, 15, 0.88);
+}
+
+.modal-contenu {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: min(90vw, 700px);
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: var(--rayon);
+    background-color: #111;
+}
+
+.modal-compteur {
+    color: #f0f0f0;
+    font-size: 0.85rem;
+}
+
+.modal-fermer {
+    position: absolute;
+    top: -2.75rem;
+    right: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal-fermer:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.modal-precedent,
+.modal-suivant {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-precedent[hidden],
+.modal-suivant[hidden] {
+    display: none;
+}
+
+.modal-precedent:hover,
+.modal-suivant:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.modal-precedent {
+    left: -3.5rem;
+}
+
+.modal-suivant {
+    right: -3.5rem;
+}
+
+@media (max-width: 700px) {
+    .modal-precedent {
+        left: 0.5rem;
+    }
+
+    .modal-suivant {
+        right: 0.5rem;
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .entete {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .recherche {
+        width: 100%;
+    }
+
+    .recherche input[type="search"] {
+        flex: 1;
+        min-width: 0;
+    }
+}
