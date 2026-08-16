@@ -115,3 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function siteaméliore(){
+    alert("La fonction ne marche pas encore, la boutique est en dévlopement");
+    return;
+}
